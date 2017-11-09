@@ -1,0 +1,14 @@
+Source: vx-dga-l-scripts-inicio-apagado
+Section: utils
+Priority: extra
+Maintainer: Arturo Martín Romero <amartinromero@gmail.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: http://wiki.vitalinux.educa.aragon.es
+
+Package: vx-dga-l-scripts-inicio-apagado
+Architecture: all
+PreDepends: vx-dga-l-migasfree-launcher (>=6.0)
+Depends: ${misc:Depends}, vx-dga-l-migasfree-launcher (>=6.0)
+Description: Scripts de inicio y apagado del sistema
+ Scripts de inicio y apagado del sistema gestionados desde el ligthdm y el autostart
