@@ -1,5 +1,12 @@
-vx-dga-l-scripts-inicio-apagado (1.0-2) unstable; urgency=low
+vx-dga-l-scripts-inicio-apagado (1.0-4) unstable; urgency=low
+
+  * Se ha añadido un script para reconfigurar el servicio openssh-server
+
+ -- Arturo Martín <amartinromero@gmail.com>  Tue, 24 Jan 2018 01:45:06 +0200
+
+vx-dga-l-scripts-inicio-apagado (1.0-3) unstable; urgency=low
 
   * Scripts de inicio y apagado del sistema Vitalinux
+  * Se añade un script en el apagado para el posible cambio nombre de equipo
 
  -- Arturo Martín <amartinromero@gmail.com>  Fri, 3 Nov 2017 01:45:06 +0200

@@ -1,6 +1,8 @@
-# Install broadcom 43xx without inet
+# Establacemos como fondo de pantalla el base (o el de su centro) en la postinstalación
 if [ -f $_FIRST ] ; then
-	if test -f /usr/bin/obtener-resolucion-pantalla -a -f /usr/share/divert/usr/share/lubuntu/wallpapers/vitalinux-edu-wallpaper-4x3-1600x1200.png -a -f /usr/share/divert/usr/share/lubuntu/wallpapers/vitalinux-edu-wallpaper-16x9-1920x1080.png ; then
+	if [ -f /usr/bin/obtener-resolucion-pantalla ] && \
+		[ -f /usr/share/vitalinux/wallpapers/vitalinux-edu-wallpaper-4x3-1600x1200.png ] && \
+		 [ -f /usr/share/vitalinux/wallpapers/vitalinux-edu-wallpaper-16x9-1920x1080.png ]; then
 
 		RESOLUCION=$(/usr/bin/obtener-resolucion-pantalla)
 		if test "$RESOLUCION" == "" ; then
@@ -9,43 +11,44 @@ if [ -f $_FIRST ] ; then
 		else
 			echo "=> $(date) - Se ha detectado una resolución de pantalla de $RESOLUCION ..." >> ${LOGVX}
 		fi
-		_FILE1=/usr/share/lubuntu/wallpapers/vitalinux-edu-wallpaper.png
-		_FILE2=/usr/share/lubuntu/wallpapers/vitalinux-login.png
+		_FILE1=/usr/share/vitalinux/wallpapers/vitalinux-edu-wallpaper.png
+		_FILE2=/usr/share/vitalinux/wallpapers/vitalinux-login.png
 
 		case $RESOLUCION in
 			"4:3" )
-			if ln -sf /usr/share/divert/usr/share/lubuntu/wallpapers/vitalinux-edu-wallpaper-4x3-1600x1200.png \
-				/usr/share/divert$_FILE1 && \
-				ln -sf /usr/share/divert/usr/share/lubuntu/wallpapers/vitalinux-login-4x3-1600x1200.png \
-				/usr/share/divert$_FILE2 ; then
+			if cp  /usr/share/vitalinux/wallpapers/vitalinux-edu-wallpaper-4x3-1600x1200.png $_FILE1 && \
+				cp  /usr/share/vitalinux/wallpapers/vitalinux-login-4x3-1600x1200.png $_FILE2 ; then
 				echo "=> $(date) - Se configurado los Wallpapers para la resolución de 4:3 ..." >> ${LOGVX}
 			else
 				echo "=> $(date) - Se iba a configurar los Wallpapers para la resolución de 4:3 y ha habido algún problema con la creación de los enlaces simbólicos ..." >> ${LOGVX}
 			fi
 			;;
 			"16:9" )
-			if ln -sf /usr/share/divert/usr/share/lubuntu/wallpapers/vitalinux-edu-wallpaper-16x9-1920x1080.png \
-				/usr/share/divert$_FILE1 && \
-				ln -sf /usr/share/divert/usr/share/lubuntu/wallpapers/vitalinux-login-16x9-1920x1080.png \
-				/usr/share/divert$_FILE2 ; then
+			if cp  /usr/share/vitalinux/wallpapers/vitalinux-edu-wallpaper-16x9-1920x1080.png $_FILE1 && \
+				cp  /usr/share/vitalinux/wallpapers/vitalinux-login-16x9-1920x1080.png $_FILE2 ; then
 				echo "=> $(date) - Se configurado los Wallpapers para la resolución de 16:9 ..." >> ${LOGVX}
 			else
 				echo "=> $(date) - Se iba a configurar los Wallpapers para la resolución de 16:9 y ha habido algún problema con la creación de los enlaces simbólicos ..." >> ${LOGVX}
 			fi
 			;;
 			* )
-			if ln -sf /usr/share/divert/usr/share/lubuntu/wallpapers/vitalinux-edu-wallpaper-16x9-1920x1080.png \
-				/usr/share/divert$_FILE1 && \
-			ln -sf /usr/share/divert/usr/share/lubuntu/wallpapers/vitalinux-login-16x9-1920x1080.png \
-				/usr/share/divert$_FILE2 ; then
+			if cp  /usr/share/vitalinux/wallpapers/vitalinux-edu-wallpaper-16x9-1920x1080.png $_FILE1 && \
+				cp  /usr/share/vitalinux/wallpapers/vitalinux-login-16x9-1920x1080.png $_FILE2 ; then
 				echo "=> $(date) - Se configurado los Wallpapers para la resolución de 16:9 a pesar de que la resolución es $RESOLUCION ..." >> ${LOGVX}
 			else
 				echo "=> $(date) - Se iba a configurar los Wallpapers para la resolución de 16:9 a pesar de que la resolución es $RESOLUCION y ha habido algún problema con la creación de los enlaces simbólicos ..." >> ${LOGVX}
 			fi
 			;;
 		esac
+		for WALL in /usr/share/vitalinux/wallpapers/*; do
+        	chmod +r $WALL
+    	done
+		# Aplicamos la configuración en el momento para que se refleje en el instante
+	    USUARIOGRAF=$(vx-usuario-grafico)
+	    su -c "pcmanfm -w /usr/share/vitalinux/wallpapers/vitalinux-edu-wallpaper.png" --login $USUARIOGRAF
 	else
-		echo "=> $(date) - Error Fondo Imagen: No existen /usr/bin/obtener-resolucion-pantalla o /usr/share/divert/usr/share/lubuntu/wallpapers/vitalinux-edu-wallpaper-4x3-1600x1200.png o /usr/share/divert/usr/share/lubuntu/wallpapers/vitalinux-edu-wallpaper-16x9-1920x1080.png ..." >> ${LOGVX}
+		echo "=> $(date) - Error Fondo Imagen: No existen /usr/bin/obtener-resolucion-pantalla o los ficheros base ..." >> ${LOGVX}
 	fi
+
 fi
 
