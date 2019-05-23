@@ -1,0 +1,12 @@
+# De forma global se estable si está activo o no el script de ajuste (1 activo)
+[Global]
+active = 0
+
+# Parámetros a configurar:
+[Settings]
+# operation: auto|manual. 
+#  auto: se impondrá dicha resolución en todos los monitores que haya
+#  manual: se usará la resolución guardada por el usuario de forma local (Ajustes de monitor)
+operation = manual
+# resolution: establece la resolución a imponer en el modo auto
+resolution = 1024x768

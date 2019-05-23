@@ -1,3 +1,28 @@
+vx-dga-l-scripts-inicio-apagado (1.0-8) unstable; urgency=low
+
+  * Ahora imponer resolución auto intenta añadir el modo definido en el fichero de conf aunque no exista de forma nativa
+
+ -- Ignacio Sancho <sannacho@gmail.com>  Tue, 16 Nov 2018 01:45:06 +0200
+
+vx-dga-l-scripts-inicio-apagado (1.0-7) unstable; urgency=low
+
+  * Bug nombre del bin para ajustar pantalla
+
+ -- Ignacio Sancho <sannacho@gmail.com>  Tue, 16 Nov 2018 01:45:06 +0200
+
+vx-dga-l-scripts-inicio-apagado (1.0-6) unstable; urgency=low
+
+  * La configuración de pantallas se convierte a demonio y espera unos segundos por si la pantalla no facilita todas las resoluciones 
+
+ -- Ignacio Sancho <sannacho@gmail.com>  Tue, 16 Nov 2018 01:45:06 +0200
+
+vx-dga-l-scripts-inicio-apagado (1.0-5) unstable; urgency=low
+
+  * Se añade la funcionalidad de configurar las pantallas de forma automática/manual. Gestionado mediante fichero de conf vx-dga-l-video-settings
+  * Bug script hostname-cambiar postrun vitalinux
+
+ -- Ignacio Sancho <sannacho@gmail.com>  Tue, 6 Nov 2018 01:45:06 +0200
+
 vx-dga-l-scripts-inicio-apagado (1.0-4) unstable; urgency=low
 
   * Se ha añadido un script para reconfigurar el servicio openssh-server

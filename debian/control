@@ -10,6 +10,6 @@ Package: vx-dga-l-scripts-inicio-apagado
 Architecture: all
 Replaces: vx-dga-l-migasfree-launcher
 Pre-Depends: vx-dga-l-migasfree-launcher (>=6.0)
-Depends: ${misc:Depends}, vx-dga-l-migasfree-launcher (>=6.0)
+Depends: ${misc:Depends}, vx-dga-l-migasfree-launcher (>=6.0), crudini
 Description: Scripts de inicio y apagado del sistema
  Scripts de inicio y apagado del sistema gestionados desde el ligthdm y el autostart
